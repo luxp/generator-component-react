@@ -30,7 +30,8 @@
   "files": ["dist"],
   "keywords": ["react", "component"],
   "dependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.6.0",
+    "babel-runtime": "^6.26.0"
   },
   "devDependencies": {
     <%# reactjs %>
