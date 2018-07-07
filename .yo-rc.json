@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Alan Lu",
+      "authorEmail": "luxianpo@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "<%= moduleName %>",
+  "version": "0.0.0",
+
+  "source": "src/index.jsx",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
+
+  "description": "<%= moduleDescription %>",
+  "repository": "<%= githubUsername %>/<%= repoName %>",
+  "author": {
+    "name": "<%= name %>",
+    "email": "<%= email %>",
+    "url": "<%= humanizedWebsite %>"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "dev": "start-storybook -p 9001 -c .storybook",
+    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "test": "<% if (nyc) { %>nyc <% } %>jest",
+    "code-quality": "npm run lint && npm run test",
+    "build": "rm -rf dist && BABEL_ENV=production babel src -d dist",
+    "release":
+      "npm run code-quality && npm run build && npm publish"
+  },
+  "files": ["dist"],
+  "keywords": ["react", "component"],
+  "dependencies": {
+    "prop-types": "^15.6.0"
+  },
+  "devDependencies": {
+    <%# reactjs %>
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+
+    <%# babel %>
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+
+    <%# test %>
+    "@storybook/react": "^3.4.7",
+    "@storybook/addons": "^3.4.7",
+    "@storybook/addon-storyshots": "^3.4.7",
+    "react-test-renderer": "^16.4.0",
+    "jest": "^23.1.0",
+    "babel-jest": "^23.0.1",
+
+    <%# lint %>
+    "eslint": "^4.19.1",
+
+    <%# lint - react %>
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "babel-eslint": "^8.2.5",
+
+    <%# lint - prettier %>
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.12.0",
+
+    <% if (codecov) { %>
+      "codecov": "^2.2.0",
+    <% } %>
+
+    <% if (nyc) { %>
+    "nyc": "^10.0.0",
+    <% } %>
+
+    <%# git hook %>
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.4"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+
+  <% if (codecov) { %>
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  <% } %>
+
+  "lint-staged": {
+    "linters": {
+      "**/*.{js,jsx}": ["prettier --write", "eslint", "git add"],
+      "**/*.json": ["prettier --write", "git add"]
+    }
+  }
+}

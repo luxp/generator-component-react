@@ -1,0 +1,11 @@
+{
+  "presets": ["env", "react"],
+  "plugins": ["transform-runtime"],
+  "env": {
+    "production": {
+      "ignore": [
+        "**/__tests__/**"
+      ]
+    }
+  }
+}
