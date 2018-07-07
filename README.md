@@ -1,5 +1,5 @@
 # generator-component-react [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
-> yeoman generator for react component using modern tech
+> yeoman generator for react component using babel and storybook
 
 ## Installation
 
@@ -25,7 +25,7 @@ yo component-react
 
 ## License
 
-MIT © [Alan Lu]()
+MIT © [Alan Lu](https://github.com/luxp)
 
 
 [npm-image]: https://badge.fury.io/js/generator-component-react.svg
