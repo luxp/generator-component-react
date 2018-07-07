@@ -12,6 +12,7 @@ describe('generator-component-react:app', () => {
       githubUsername: 'githubUserName',
       nyc: false,
       codecov: false,
+      website: 'https://github.com',
     });
   });
 

@@ -65,7 +65,6 @@ module.exports = class extends Generator {
         name: 'website',
         message: 'What is the URL of your website?',
         store: true,
-        validate: x => (x.length > 0 ? true : 'You have to provide a website URL'),
         filter: x => normalizeUrl(x),
       },
       {
@@ -111,7 +110,7 @@ module.exports = class extends Generator {
         name: this.user.git.name(),
         email: this.user.git.email(),
         website: props.website,
-        humanizedWebsite: humanizeUrl(props.website),
+        humanizedWebsite: props.website && humanizeUrl(props.website),
         nyc,
         codecov,
       };
